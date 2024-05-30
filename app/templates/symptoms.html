@@ -1,0 +1,25 @@
+<!-- templates/symptoms.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="font-bold text-3xl mb-5">Gejala dan Pasien</h1>
+
+  <a class="border px-5 py-2 rounded-lg text-xl font-semibold bg-blue-600 text-white mb-5 inline-block" href="{{ url_for('import_symptoms') }}">Import Gejala dan Kondisi</a>
+  
+  <table>
+    <thead>
+      <tr>
+        <th class="border p-2">Gejala</th>
+        <th class="border p-2">Solusi</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for symptom in symptoms %}
+        <tr>
+          <td class="border p-2">{{ symptom.name }}</td>
+          <td class="border p-2">{{ symptom.solution if symptom.solution else '' }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Health Result{% endblock %}
+{% block content %}
+<h1>Health Check Result</h1>
+<ul>
+    {% for solution in solutions %}
+        <li>{{ solution }}</li>
+    {% else %}
+        <li>Tidak ada solusi yang ditemukan untuk gejala yang dipilih.</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('health_check') }}">Back to Health Check</a>
+{% endblock %}

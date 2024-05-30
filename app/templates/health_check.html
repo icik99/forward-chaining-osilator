@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Health Check{% endblock %}
+{% block content %}
+<h1>Health Check</h1>
+<form method="POST" action="{{ url_for('health_check') }}">
+    <ul>
+        {% for symptom in symptoms %}
+            <li>
+                <label>{{ symptom.name }}</label>
+                <div>
+                    <input type="radio" id="yes_{{ symptom.id }}" name="{{ symptom.id }}" value="yes">
+                    <label for="yes_{{ symptom.id }}">Iya</label>
+                </div>
+                <div>
+                    <input type="radio" id="no_{{ symptom.id }}" name="{{ symptom.id }}" value="no">
+                    <label for="no_{{ symptom.id }}">Tidak</label>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
